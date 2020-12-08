@@ -1,0 +1,15 @@
+<%if edit%>
+    <%action = edit_band_url %>
+<%else%>
+    <%action = new_band_url%>
+
+<form action="<%=action%>" method = "POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <%if edit%>
+      <input type="hidden" name="_method" value="PATCH">
+    <%end%>
+
+    <label for="band_name">Band Name:</label>
+    <input type="text" id="band_name" name="band[name]"
+        values="<%= band.name%>">
+</form>
